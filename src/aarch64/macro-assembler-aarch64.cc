@@ -1608,6 +1608,7 @@ void MacroAssembler::Negs(const Register& rd, const Operand& operand) {
 
 bool MacroAssembler::TryOneInstrMoveImmediate(const Register& dst,
                                               int64_t imm) {
+  SingleEmissionCheckScope guard(this);
   return OneInstrMoveImmediateHelper(this, dst, imm);
 }
 
